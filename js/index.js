@@ -1,5 +1,5 @@
 (async function ($) {
-  const url = './nav/head.html';
+  const url = './html/nav/head.html';
   $('#top').load(url, function() {
     $('#nav_top .nav_tabs a').each(function(i, v) {
       $(v).removeClass('on');
