@@ -1,0 +1,25 @@
+#phrase:hover {
+  overflow-y: auto;
+}
+#phrase {
+  bottom: 0px;
+  top: 0px;
+  position: fixed;
+  width: 230px;
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+#phrase dt {
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 10px;
+}
+#phrase dd {
+  color: #777;
+}
+#phrase dd:last-child {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+}

@@ -1,0 +1,31 @@
+<div class="item">
+  <div class="date">2020/09/09</div>
+  <div class="summary">
+    <i class="anchor">强制推送 git push</i>
+    <pre>命令 "git push -f" 中的 [-f]/[--force] 参数解释</pre>
+    <div class="url">
+      <a href="https://gitbook.tw/chapters/github/using-force-push.html" target="_blank">为你自己学 git (台湾)</a>
+    </div>
+  </div>
+  <div class="summary">
+    <pre>对团队成员来说，比参数 [-f] 更友好的参数 [--force-with-lease]</pre>
+    <div class="url">
+      <a href="https://juejin.im/post/6844903489970126856" target="_blank">掘金文章</a>
+    </div>
+  </div>
+</div>
+<div class="item">
+  <div class="date">2020/04/01</div>
+  <div class="summary">
+    <i class="anchor">windows 环境下 git 换行符</i>
+    <pre>Git 多平台换行符问题 (LF or CRLF), 拒绝提交包含混合换行符的文件</pre>
+    <pre class="case">git config --global core.safecrlf true</pre>
+    <pre>windows 环境下统一换行符 (包括跳过排除目录)</pre>
+    <pre class="case">find . -type f ! -path '*/js/node_modules/*' ! -path '*/css/node_modules/*' ! -path '*/\.git/*' -exec dos2unix {} +</pre>
+    <div class="url">
+      <a href="http://kuanghy.github.io/2017/03/19/git-lf-or-crlf" target="_blank">旷世的忧伤 (个人博客)</a>
+    </div>
+  </div>
+</div>
+
+<script src="../js/catalog_bar.js"></script>

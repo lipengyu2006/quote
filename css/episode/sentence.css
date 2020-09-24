@@ -1,16 +1,18 @@
-body {
-  background-color: #f2f4b2;
-  background-color: #fefed5; 
-  background-color: #f7f7f7;
+#sentences {
+  padding-right: 10px;
+}
+#sentences .seq {
+  font-family: 'Fredoka One', cursive;
 }
 
-#sentences p {
-}
 #sentences span {
   display:inline-block;
   text-align:center;
   color: #0d627a;
   font-size: 1.25rem;
+}
+#sentences span:not(:last-child) {
+  margin-right: 4px;
 }
 #sentences i {
   font-weight: bold;

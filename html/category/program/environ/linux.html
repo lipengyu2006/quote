@@ -1,0 +1,36 @@
+<div class="date">2020/06/08</div>
+<div class="summary">
+  <i class="anchor">ubuntu 更改 hostname</i>
+  <pre>【配置】linux(ubuntu) 更改 hostname</pre>
+  <pre class="case">
+    sudo hostnamectl set-hostname wokanhao.com
+    sudo vim /etc/hosts
+    update/append:
+      127.0.0.1        localhost
+      192.168.184.128  wokanhao.com
+
+      nginx ->  server -> server_name -> 192.168.184.128
+      nginx ->  server -> location -> proxy_pass -> 192.168.184.128:8080
+
+    cowboy/nginx
+      only set cors once in nginx
+
+    nginx proxy
+      可以使用 curl 工具进行本地测试, 成功的条件为:
+      nginx 中的 server_name 需要对应 /etc/hosts IP 地址对应的名称
+
+    server:
+      curl localhost/xxx
+      curl localhost:8080/xxx
+      curl 127.0.0.1:8080/xxx
+      curl wokanhao.com/xxx
+      curl wokanhao.com:8080/xxx
+
+      curl 192.168.184.128/xxx   <-  奇怪这个不好用
+      curl 127.0.0.1/xxx         <-  这个也不好用</pre>
+  <div class="url">
+    <a href="https://www.cyberciti.biz/faq/ubuntu-18-04-lts-change-hostname-permanently/" target="_blank">
+      cyberciti.biz，hostnamectl，/etc/hosts
+    </a>
+  </div>
+</div>

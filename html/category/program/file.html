@@ -1,0 +1,129 @@
+<div class="item">
+  <div class="date">2020/09/03</div>
+  <div class="summary">
+    <i class="anchor">一行一行的操作文件</i>
+    <pre>使用 nodejs 一行一行的读取一个文件的数据</pre>
+    <div class="url">
+      <a href="https://attacomsian.com/blog/reading-a-file-line-by-line-in-nodejs" target="_blank">
+        Atta (个人博客 国外)
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <pre>多个语言实现一行一行的读取一个文件的数据
+【例子】sed 方式 (好简短啊)</pre>
+    <pre class="case">sed p filename</pre>
+    <div class="url">
+      <a href="https://www.rosettacode.org/wiki/Read_a_file_line_by_line" target="_blank">
+        rosettacode (罗塞塔) (同一个问题使用不同语言来实现)
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <pre>使用 sed 打印文本文件中某行到某行间的行内容
+【例子】读取 filename 中 16224 ~ 16482p 行的内容到 newfile 中，并在 16483 行退出 sed</pre>
+    <pre class="case">sed -n '16224,16482p;16483q' filename > newfile</pre>
+    <div class="url">
+      <a href="https://stackoverflow.com/questions/83329/how-can-i-extract-a-predetermined-range-of-lines-from-a-text-file-on-unix" target="_blank">
+        stackoverflow 回答
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <pre>【例子】打印文本文件最后10行内容</pre>
+    <pre class="case">tail -n 10 filename</pre>
+    <div class="url">
+      <a href="https://stackoverflow.com/questions/18453328/using-sed-to-get-the-last-n-lines-of-a-huge-text-file/47998370" target="_blank">
+        stackoverflow 回答
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <i class="anchor">好书 "Linux 命令行与 shell 脚本编程大全"</i>
+    <pre>【书籍】Linux 命令行与 shell 脚本编程大全 (第 3 版)
+      19.2.3  删除行
+      19.2.4  插入和附加文本
+      19.2.5  修改行
+      19.2.8  使用 sed 处理文件</pre>
+    <div class="url">
+      <a href="https://www.linuxidc.com/Linux/2017-05/143300.htm" target="_blank">
+        Linux 命令行与 shell 脚本编程大全
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <i class="anchor">sed 原理</i>
+    <pre>【原理】sed 处理文件的时候</pre>
+    <ul>
+      <li>每一行都被保存在一个叫<b>模式空间</b>的临时缓冲区中。</li>
+      <li>除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。</li>
+      <li>接着模式空间被清空，并存入新的一行等待处理。</li>
+    </ul>
+    <ul>
+      <li>h 命令取出<b>模式空间</b>的行，然后复制并存入一个称为<b>保持空间</b>的特殊缓冲区内。</li>
+      <li>H 命令取出<b>模式空间</b>的行，然后复制并追加到被称为<b>保持空间</b>的特殊缓冲区内。</li>
+      <li>g 命令取出<b>保持空间</b>的行，然后替换掉当前存在于模式空间中的行。</li>
+      <li>G 命令取出<b>保持空间</b>的行，然后追加到当前存在于模式空间中的行的末尾。</li>
+    </ul>
+    <pre>【例子】任何包含test的行都被复制并追加到该文件的末尾</pre>
+    <pre class="case">sed -e '/test/h' -e '$G' file</pre>
+    <ul>
+      <li>x 命令互换<b>模式空间</b>和<b>保持空间</b>的内容</li>
+    </ul>
+    <pre>【例子】把包含test与check的行互换</pre>
+    <pre class="case">sed -e '/test/h' -e '/check/x' file</pre>
+    <div class="url">
+      <a href="https://man.linuxde.net/sed" target="_blank">
+        sed 参数介绍 (Linux命令大全)
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <i class="anchor">操作文件特定的行</i>
+    <pre>【例子】读取一个文件特定的某一行
+【说明】sed 好像相对最简洁 (打印第 7 行的内容)</pre>
+    <pre class="case">sed -n 7p</pre>
+    <div class="url">
+      <a href="https://www.rosettacode.org/wiki/Read_a_specific_line_from_a_file" target="_blank">
+        rosettacode (罗塞塔) (同一个问题使用不同语言来实现)
+      </a> 
+    </div>
+  </div>
+</div>
+<div class="item">
+  <div class="date">2020/05/12</div>
+  <div class="summary">
+    <i class="anchor">Matlab 追加内容到文件头部</i>
+    <pre>Append data at the beginning of a file (感觉好像没啥用😅)
+      读取整个文件
+      新数据
+      新数据 + 整个文件内容 -> 新文件</pre>
+    <div class="url">
+      <a href="https://www.mathworks.com/matlabcentral/answers/80529-append-data-at-the-beginning-of-a-file-matlab" target="_blank">
+        mathworks，不会 Matlab，目前感觉真没啥用途呀
+      </a> 
+    </div>
+  </div>
+</div>
+<div class="item">
+  <div class="date">2020/04/29</div>
+  <div class="summary">
+    <pre>【例子】逆排序文件中的行 (左边 -> 右边)
+foo     baz
+bar     bar
+baz     foo</pre>
+    <pre class="case">
+      tail -r myfile.txt
+      sed '1!G;h;$!d'
+      sed -n '1!G;h;$p'
+      awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' file*
+      perl -e 'print reverse <>'</pre>
+    <div class="url">
+      <a href="https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-in-a-file" target="_blank">
+        stackoverflow 回答
+      </a> 
+    </div>
+  </div>
+</div>
+
+<script src="../js/catalog_bar.js"></script>

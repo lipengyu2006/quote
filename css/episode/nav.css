@@ -1,0 +1,77 @@
+.nav_left:hover {
+  overflow-y: auto;
+}
+.nav_left {
+  bottom: 0px;
+  top: 0px;
+  position: fixed;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #2a2a2a;
+  padding-top: 72px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Roboto Mono', monospace;
+}
+.nav_left div {
+  display: flex;
+}
+.nav_left .level_1 div,
+.nav_left .level_2 div {
+  flex-direction: row;
+}
+.nav_left .level_1,
+.nav_left .level_2 {
+  flex-direction: column !important;
+}
+.nav_left .level_1 {
+  flex: 0 0 auto;
+  height: 25px;
+  justify-content: center;
+  cursor: pointer;
+}
+.level_2 > .level_1:first-child,
+.level_1 {
+  padding-left: 2px;
+}
+.level_2 > .level_1:not(:first-child) {
+  padding-left: 12px;
+}
+
+
+.level_2 > .level_1:first-child {
+  /*background: #ff7e67;*/
+}
+.level_2 > .level_1.on,
+.level_2 > .level_1:not(:first-child):hover {
+  background: #e0ece4;
+}
+
+
+
+
+#nav_top a,
+#nav_top div {
+  display: flex;
+  align-items: center;
+}
+.top_center {
+  flex: 1 1 auto;
+  justify-content: left;
+  box-shadow: 0 2px 2px -2px #96bb7c,
+              0 25px 5px -5px #f7f7f7;
+}
+.nav_tabs > a {
+  text-decoration: none;
+  color: #2a2a2a;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.nav_tabs > a.on {
+  background: #e0ece4;
+}
+.nav_tabs > a:not(:first-child) {
+  margin-left: 20px;
+}

@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #f2f4b2;
+  background-color: #fefed5; 
+  background-color: #f7f7f7;
+}
+
+@keyframes dotted {
+  to {
+    background-position: 100% 100%
+  }
+}
+
+.dotted {
+	border-right: 1px solid transparent;
+	background: linear-gradient(#f7f7f7, #f7f7f7) padding-box,
+	            repeating-linear-gradient(-45deg, black 0, black 25%, transparent 0, transparent 50%) 0 / .6em .6em;
+	animation: dotted 60s linear infinite;
+}

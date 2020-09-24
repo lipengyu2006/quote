@@ -1,0 +1,28 @@
+<div id="environ_nginx" class="item"></div>
+<div id="environ_linux" class="item"></div>
+<script>
+(async function ($) {
+  var url_pre = './category/program/environ/';
+  var url_nginx = url_pre + 'nginx.html';
+  var url_linux = url_pre + 'linux.html';
+  await load($('#environ_nginx'), url_nginx);
+  await load($('#environ_linux'), url_linux);
+  tmpl_bar();
+
+  function load(elm, url, callback) {
+    return new Promise((resolve, reject) => {
+      elm.load(url, function() {
+        callback && callback();
+        resolve();
+      })
+    });
+  }
+
+  function tmpl_bar() {
+    const elms = $('#content').find('.anchor').toArray();
+    const brief = elms.map((v, i) => `<div class="level_1"><a href="${ i }" title="${ $(v).text().replace(/"/g, "&quot;") }">${ $(v).text() }</a></div>`);
+    const html = brief.join('');
+    $('#bar .nav_right').html(html);
+  }
+})(jQuery);
+</script>

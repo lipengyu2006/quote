@@ -1,0 +1,183 @@
+<div class="date">2020/06/09</div>
+<div class="summary">
+  <i class="anchor">nginx 前置服务器</i>
+  <pre>【经验】【生产环境】配置前置服务器</pre>
+  <ul>
+    <li>安装 nginx</li>
+    <li>使用 acme.sh 以 dns 模式自动给域名签名</li>
+    <li>设置域名服务为 cloudflare</li>
+    <li>重置 iptables</li>
+    <li>修改主机名称 & hosts 文件 & nginx 配置文件</li>
+  </ul>
+  <pre>【注意】可能出现问题的地方有：
+    （主机名，IP）
+    （nginx 运行身份）
+    （80，443 配置模块）
+    （cors，cloudflare）</pre>
+  <div class="url">
+    <a href="https://www.notion.so/Nginx-143a957421f0496aae077ec043036455" target="_blank">
+      Notion（自己整理的笔记）
+    </a> 
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">安装 nginx</i>
+  <pre>【安装】ubuntu-18.04 安装 nginx</pre>
+  <div class="url">
+    <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04" target="_blank">
+      digitalocean (社区/教程) 这里面的教程都很好
+    </a> 
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 反向代理 websocket</i>
+  <pre>【配置】nginx 反向代理 websocket</pre>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/12102110/nginx-to-reverse-proxy-websockets-and-enable-ssl-wss" target="_blank">
+      简单 - stackoverflow
+    </a>
+  </div>
+  <div class="url">
+    <a href="http://nginx.org/en/docs/http/websocket.html" target="_blank">
+      简单 - 官方文档 （nginx）
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://www.nginx.com/blog/websocket-nginx/" target="_blank">
+      复杂 - 官方博客 （nginx）
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://www.xncoding.com/2018/03/12/fullstack/nginx-websocket.html" target="_blank">
+      复杂 - 飞污熊博客 （个人博客）
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 反向代理 eventsource</i>
+  <pre>【配置】nginx 反向代理 eventsource</pre>
+  <pre>【例子】摘取自答案</pre>
+  <pre class="case">
+    proxy_set_header Connection '';
+    proxy_http_version 1.1;
+    chunked_transfer_encoding off;
+    proxy_buffering off;
+    proxy_cache off;</pre>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/13672743/eventsource-server-sent-events-through-nginx" target="_blank">
+      stackoverflow 中的回答
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 静态服务器</i>
+  <pre>【配置】nginx 静态服务器</pre>
+  <pre>【例子】指令 (diractives): root 和 alias 的区别</pre>
+  <pre class="case">
+    location /static/ { root  /var/www/app/; }
+    location /static/ { alias /var/www/app/; }
+    http://domain.com/static/test.png
+    root   ->   /var/www/app/static/test.png
+    alias  ->   /var/www/app/test.png</pre>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias" target="_blank">
+      stackoverflow 中的回答
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 跨域设置 cors 相关</i>
+  <pre>【配置】nginx 配置 cors</pre>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/45986631/how-to-enable-cors-in-nginx-proxy-server" target="_blank">
+      stackoverflow
+    </a>
+  </div>
+  <pre>【例子】正确示范</pre>
+  <pre class="case">
+    add_header 'Access-Control-Allow-Origin' 'http://api.localhost';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+    add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
+
+    if ($request_method = 'OPTIONS') {
+      add_header 'Access-Control-Allow-Origin' 'http://api.localhost';
+      add_header 'Access-Control-Allow-Credentials' 'true';
+      add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+      add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
+      add_header 'Access-Control-Max-Age' 1728000;
+      add_header 'Content-Type' 'text/plain charset=UTF-8';
+      add_header 'Content-Length' 0;
+      return 204;
+    }</pre>
+  <pre>【例子】错误示范，实践的时候有问题，（公共的部分不能提取出来？）</pre>
+  <pre class="case">
+    add_header 'Access-Control-Allow-Origin' 'http://api.localhost';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+    add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
+
+    if ($request_method = 'OPTIONS') {
+      add_header 'Access-Control-Max-Age' 1728000;
+      add_header 'Content-Type' 'text/plain charset=UTF-8';
+      add_header 'Content-Length' 0;
+      return 204;
+    }</pre>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 自定义错误页面</i>
+  <pre>【配置】nginx 自定义错误页面</pre>
+  <div class="url">
+    <a href="https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-to-use-custom-error-pages-on-ubuntu-14-04" target="_blank">
+      非代理 digitalocean (社区/教程)
+    </a>
+  </div>
+  <div class="url">
+    <a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#error_page" target="_blank">
+      非代理 nginx 官方文档
+    </a>
+  </div>
+  <pre>【例子】代理 proxy_pass 模式下 nginx 自定义错误页面</pre>
+  <pre class="case">
+    proxy_intercept_errors on;
+    root /var/www/html; <- your path
+    error_page 404 /custom_404.html;</pre>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/8715064/nginx-not-serving-my-error-page" target="_blank">
+      代理 proxy_pass stackoverflow 回答
+    </a>
+  </div>
+  <div class="url">
+    <a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_intercept_errors" target="_blank">
+      代理 proxy_pass nginx 官方文档
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 自定义默认图片</i>
+  <pre>【配置】nginx 自定义默认图片</pre>
+  <pre>【例子】使用 try_files 指令实现 (摘取自 serverfault)</pre>
+  <pre class="case">
+    location /img {
+      try_files $uri /img/default.jpg;
+    }</pre>
+  <div class="url">
+    <a href="https://serverfault.com/questions/562269/redirect-missing-images-in-a-specific-directory" target="_blank">
+      serverfault
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/21019257/display-default-image-when-missing-file-in-nginx" target="_blank">
+      stackoverflow
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">nginx 配置文件格式</i>
+  <pre>【教程】nginx 配置文件 匹配顺序</pre>
+  <div class="url">
+    <a href="https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms" target="_blank">
+      digitalocean (社区/教程) 我很喜欢这种风格的教程啊
+    </a>
+  </div>
+</div>

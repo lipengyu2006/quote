@@ -1,0 +1,102 @@
+#content {
+  padding-top: 20px;
+}
+
+#content .item + .item {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #1b262c;
+}
+
+.item .date {
+  font-size: 12px;
+  font-family: 'Roboto Mono', monospace;
+  margin-bottom: 5px;
+  color: #00b7c2;
+}
+
+.item .summary {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  color: #1b262c;
+}
+
+.item .summary .url a {
+  font-size: 12px;
+  color: #0f4c75;
+}
+
+.item .summary + .summary {
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 1px dashed #1b262c;
+}
+
+.item .summary pre {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  margin: 7px 0;
+	line-height: 2;
+}
+.item .summary pre.zebra {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+	padding: .5em;
+	/*background: hsl(20, 50%, 95%);*/
+	background: #fdcb9e;
+	background-image: linear-gradient(
+	                  rgba(0,183,194,1) 50%, transparent 0);
+	background-size: auto 4em;
+	background-origin: content-box;
+  width: calc(100% - 30px);
+  overflow: auto;
+}
+.item .summary pre.case {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+	padding: .5em;
+	background: #f7f2e7;
+  color: #797a7e;
+  /*width: calc(100% - 30px);*/
+  width: 100%;
+  overflow: auto;
+}
+.item .summary b {
+  color: #ea5455;
+  display: inline-block;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.item .summary i {
+  font-style: normal;
+}
+.item .summary ul {
+  margin: 7px 0 7px 25px;
+  padding: 0px 0px 0px 20px;
+}
+.item .summary ul li {
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+}
+
+.item .summary div.url:before,
+.item .summary div.url:after {
+  white-space: pre;
+  display: inline-block;
+  color: #1b262c;
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  line-height: 2;
+}
+.item .summary div.url:before {
+  content: "[ ";
+}
+.item .summary div.url:after {
+  content: " ]";
+}
+
+.item .summary .anchor {
+  display: none;
+}
