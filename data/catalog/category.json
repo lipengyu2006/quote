@@ -90,5 +90,46 @@
         "title": "英文"
       }
     ]
+  },
+  {
+    "sid": "1009",
+    "name": "machine_learning",
+    "title": "机器学习类",
+    "children": [
+      {
+        "sid": "100910",
+        "name": "nlp",
+        "title": "自然语言处理(NLP)"
+      }
+    ]
+  },
+  {
+    "sid": "1010",
+    "name": "front_end",
+    "title": "泛前端型技巧类",
+    "children": [
+      {
+        "sid": "101010",
+        "name": "javascript",
+        "title": "运行在浏览器中"
+      },
+      {
+        "sid": "101020",
+        "name": "nodejs",
+        "title": "运行在服务器中"
+      }
+    ]
+  },
+  {
+    "sid": "1011",
+    "name": "ops",
+    "title": "运维类",
+    "children": [
+      {
+        "sid": "101110",
+        "name": "nginx",
+        "title": "防止网站被劫持"
+      }
+    ]
   }
 ]
