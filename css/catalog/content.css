@@ -38,6 +38,7 @@
   font-size: 16px;
   margin: 7px 0;
 	line-height: 2;
+  overflow: auto;
 }
 .item .summary pre.zebra {
   font-family: 'IBM Plex Mono', monospace;

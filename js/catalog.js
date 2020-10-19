@@ -77,6 +77,20 @@
     $('#bar .level_1').removeClass('on').eq(index).addClass('on');
     scrollTo(0, summary.offset().top - 50);
   });
+
+
+  $('#top').on('click', '.menu', function(e) {
+    e.preventDefault();
+    $('#page').addClass('columns2');
+    $('.nav_tabs .close').removeClass('hidden');
+    $('.nav_tabs .menu').addClass('hidden');
+  });
+  $('#top').on('click', '.close', function(e) {
+    e.preventDefault();
+    $('#page').removeClass('columns2');
+    $('.nav_tabs .close').addClass('hidden');
+    $('.nav_tabs .menu').removeClass('hidden');
+  });
 })(jQuery);
 
 function load_main_content(url, sid) {
