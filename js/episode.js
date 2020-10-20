@@ -22,6 +22,19 @@
     $('#nav .level_2:nth-child(1) .level_1:nth-child(2)').click();
   });
   $('#bar').load('bar/episode_phrase.html');
+
+  $('#top').on('click', '.menu', function(e) {
+    e.preventDefault();
+    $('#page').addClass('columns2');
+    $('.nav_tabs .close').removeClass('hidden');
+    $('.nav_tabs .menu').addClass('hidden');
+  });
+  $('#top').on('click', '.close', function(e) {
+    e.preventDefault();
+    $('#page').removeClass('columns2');
+    $('.nav_tabs .close').addClass('hidden');
+    $('.nav_tabs .menu').removeClass('hidden');
+  });
 })(jQuery);
 
 

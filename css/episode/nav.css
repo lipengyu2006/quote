@@ -10,7 +10,7 @@
   flex-direction: column;
   font-size: 14px;
   color: #2a2a2a;
-  padding-top: 72px;
+  padding-top: 18px;
   overflow-x: hidden;
   overflow-y: hidden;
   font-family: 'Roboto Mono', monospace;
@@ -68,10 +68,26 @@
   color: #2a2a2a;
   padding: 10px 15px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 .nav_tabs > a.on {
   background: #e0ece4;
 }
 .nav_tabs > a:not(:first-child) {
   margin-left: 20px;
+}
+
+
+#nav_top .nav_tabs .menu,
+#nav_top .nav_tabs .close {
+  display: none;
+}
+#nav_top .nav_tabs a.hidden {
+  display: none !important;
+}
+@media only screen and (max-width: 960px) {
+  #nav_top .nav_tabs .menu,
+  #nav_top .nav_tabs .close {
+    display: flex;
+  }
 }

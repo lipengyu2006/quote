@@ -10,7 +10,7 @@ lines.forEach(l => {
   const word = units.shift();
   if (units.length > 1) units[0] = '[ ' + units[0] + ' ]';
   const word_info = units.map(v => `<dd>${ v }</dd>`).join('');
-  words.push(`<dl><dt>${ word }</dt>${ word_info }</dl>`);
+  words.push(`<div><dl><dt>${ word }</dt>${ word_info }</dl></div>`);
 });
 
 const html = `<div id="phrase">${ words.join('') }</div>`;

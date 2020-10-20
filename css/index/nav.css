@@ -1,7 +1,94 @@
+.nav_right:hover,
+.nav_left:hover {
+  overflow-y: auto;
+}
+.nav_right,
+.nav_left {
+  bottom: 0px;
+  top: 0px;
+  position: fixed;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #2a2a2a;
+  padding-left: 5px;
+  padding-top: 17px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+}
+.nav_right div,
+.nav_left div {
+  display: flex;
+}
+
+.level_1 a {
+  display: block;
+  color: #2a2a2a;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.level_1 div,
+.level_2 div {
+  flex-direction: row;
+}
+.level_1,
+.level_2 {
+  flex-direction: column !important;
+}
+.level_1 {
+  flex: 0 0 auto;
+  height: 25px;
+  justify-content: center;
+  cursor: pointer;
+}
+.level_2 > .level_1:first-child,
+.level_1 {
+  padding-left: 2px;
+}
+.level_2 > .level_1:not(:first-child) {
+  padding-left: 12px;
+}
+
+
+.level_2 > .level_1:first-child {
+  /*background: #ff7e67;*/
+}
+.level_2 > .level_1.on,
+.level_2 > .level_1:not(:first-child):hover {
+  background: #e0ece4;
+}
+
+
+#nav_top {
+  display: flex;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #2a2a2a;
+  z-index: 100;
+  font-size: 14px;
+  overflow: auto;
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+}
+#page.columns2 #nav_top {
+  width: calc(100% - 100px);
+  left: 100px;
+}
+
 #nav_top a,
 #nav_top div {
   display: flex;
   align-items: center;
+}
+#nav_top .nav_tabs a.hidden {
+  display: none !important;
 }
 .top_center {
   flex: 1 1 auto;
@@ -17,6 +104,7 @@
   color: #2a2a2a;
   padding: 10px 15px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 .nav_tabs > a.on {
   background: #e0ece4;

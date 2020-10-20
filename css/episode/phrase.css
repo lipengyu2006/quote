@@ -7,11 +7,14 @@
   position: fixed;
   width: 230px;
   display: flex;
-  padding-top: 60px;
+  padding-left: 20px;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: hidden;
   font-family: 'Roboto', sans-serif;
+}
+#phrase > div {
+  display: flex;
 }
 #phrase dt {
   font-family: 'Open Sans', sans-serif;
@@ -22,4 +25,16 @@
 }
 #phrase dd:last-child {
   font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+}
+
+@media only screen and (max-width: 960px) {
+  #phrase {
+    width: auto;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #phrase > div {
+    padding: 10px;
+  }
 }
