@@ -1,0 +1,59 @@
+<div class="date">2020/01/17</div>
+<div class="summary">
+  <i class="anchor">erlang 环境配置</i>
+  <pre>【配置】ubuntu18.04 erlang 配置环境</pre>
+  <pre class="case">
+  1. 安装所需依赖
+
+     sudo apt install libkrb5-dev
+     sudo apt install libssl-dev
+     sudo apt install automake
+     sudo apt install autoconf
+     sudo apt install libncurses5-dev
+     sudo apt install g++
+     reboot
+
+  2. 安装 OpenSSL
+
+     (<= erlang19.3)
+     export CFLAGS=-fPIC
+     ./config shared --prefix=/usr/local/openssl-1.0.2u
+     (>= erlang20, 有 CFLAGS 可能还会出错)
+     ./config --prefix=/usr/local/openssl-1.1.1d
+
+     注意参考文章里 (pattern-match) 有两个地方需要调整
+     参考另一篇文章 (stackoverflow) 进行修正
+       --prefix 路径需要更换其他地方
+       -fPIC 编译选项位置
+
+  3. 配置编译 Erlang 所需环境变量
+
+     (<= erlang19.3)
+     export KERL_CONFIGURE_OPTIONS="--enable-debug --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --with-ssl=/usr/local/openssl-1.0.2u/"
+     (>= erlang20)
+     export KERL_CONFIGURE_OPTIONS="--enable-debug --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --with-ssl=/usr/local/openssl-1.1.1d/"
+
+  4. 编译 Erlang 并安装
+
+     kerl build 19.3 19.3-hipe
+     kerl install 19.3-hipe /usr/local/erl_19.3-hipe
+
+     kerl build 21.3 21.3-hipe
+     kerl install 21.3-hipe /usr/local/erl_21.3-hipe
+  </pre>
+  <div class="url">
+    <a href="https://pattern-match.com/blog/erlang-how-to-safely-build-erlang-with-crypto-without-openssl-issues/" target="_blank">
+      安装 OpenSSL (pattern-match.com/blog)
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://stackoverflow.com/questions/2537271/compile-openssl-with-the-shared-option" target="_blank">
+      编译低版本 OpenSSL 时"-fPIC"及"shared"的使用方式 (stackoverflow)
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://github.com/kerl/kerl" target="_blank">
+      kerl (github 官方网站)
+    </a>
+  </div>
+</div>

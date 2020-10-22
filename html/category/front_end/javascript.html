@@ -14,5 +14,30 @@
     </div>
   </div>
 </div>
+<div class="item">
+  <div class="date">2020/07/02</div>
+  <div class="summary">
+    <i class="anchor">JS 复制内容到剪切板</i>
+    <pre>【技巧】A better way to copy text to Clipboard in JavaScript</pre>
+    <pre class="case">
+    function copyRichText(text) {
+      const listener = function(ev) {
+        ev.preventDefault();
+        ev.clipboardData.setData('text/html', text);
+        ev.clipboardData.setData('text/plain', text);
+      };
+      document.addEventListener('copy', listener);
+      document.execCommand('copy');
+      document.removeEventListener('copy', listener);
+    }
+
+    copyRichText('Markup text. Paste me into a rich text editor.');</pre>
+    <div class="url">
+      <a href="https://komsciguy.com/js/a-better-way-to-copy-text-to-clipboard-in-javascript/" target="_blank">
+        Hiep Bao Le's Article (komsciguy.com)
+      </a> 
+    </div>
+  </div>
+</div>
 
 <script src="../js/catalog_bar.js"></script>

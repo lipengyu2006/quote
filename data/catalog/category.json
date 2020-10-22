@@ -25,6 +25,11 @@
         "sid": "100420",
         "name": "environ",
         "title": "环境配置"
+      },
+      {
+        "sid": "100430",
+        "name": "document",
+        "title": "官方文档"
       }
     ]
   },
@@ -54,6 +59,11 @@
         "sid": "100610",
         "name": "font",
         "title": "字体"
+      },
+      {
+        "sid": "100620",
+        "name": "icon",
+        "title": "图标"
       }
     ]
   },
@@ -88,6 +98,16 @@
         "sid": "100820",
         "name": "english",
         "title": "英文"
+      },
+      {
+        "sid": "100830",
+        "name": "finance",
+        "title": "投资理财"
+      },
+      {
+        "sid": "100840",
+        "name": "blog",
+        "title": "博客文章(理工)"
       }
     ]
   },
@@ -117,6 +137,11 @@
         "sid": "101020",
         "name": "nodejs",
         "title": "运行在服务器中"
+      },
+      {
+        "sid": "101030",
+        "name": "product",
+        "title": "优秀作品展示"
       }
     ]
   },

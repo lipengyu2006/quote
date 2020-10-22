@@ -1,12 +1,15 @@
 <div id="environ_nginx" class="item"></div>
 <div id="environ_linux" class="item"></div>
+<div id="environ_erlang" class="item"></div>
 <script>
 (async function ($) {
   var url_pre = './category/program/environ/';
   var url_nginx = url_pre + 'nginx.html';
   var url_linux = url_pre + 'linux.html';
+  var url_erlang = url_pre + 'erlang.html';
   await load($('#environ_nginx'), url_nginx);
   await load($('#environ_linux'), url_linux);
+  await load($('#environ_erlang'), url_erlang);
   tmpl_bar();
 
   function load(elm, url, callback) {

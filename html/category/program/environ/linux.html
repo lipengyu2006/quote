@@ -34,3 +34,47 @@
     </a>
   </div>
 </div>
+<div class="summary">
+  <i class="anchor">ubuntu 永久修改 ulimit -n</i>
+  <pre>【配置】ubuntu18.04 修改用户创建的进程数(nproc)/文件描述符数(nofile)限制</pre>
+  <pre class="case">
+  在配置文件 /etc/security/limits.conf 加入
+
+      user(具体的用户名) soft nofile 65535
+      user(具体的用户名) hard nofile 65535
+      user(具体的用户名) soft nproc  65535
+      user(具体的用户名) hard nproc  65535
+
+  注:
+  1. 并没有配置 /etc/pam.d/common-session 到相关文件中也好用了
+     (比如 session required pam_limits.so)
+
+  2. 据说在 ubuntu 中 user 处使用通配符 * 会不起作用</pre>
+  <div class="url">
+    <a href="https://askubuntu.com/questions/1049058/how-to-increase-max-open-files-limit-on-ubuntu-18-04" target="_blank">
+      问答论坛 (askubuntu.com)
+    </a>
+  </div>
+</div>
+<div class="summary">
+  <i class="anchor">安装配置 samba 服务</i>
+  <pre class="case">【安装】
+  sudo apt install samba
+  sudo apt install smbclient</pre>
+  <pre class="case">【配置】/etc/samba/smb.conf
+  [share]    
+      comment = Shared Folder with username and password
+      path = /.../share_dir_path/
+      available = yes    
+      browseable = yes    
+      public = yes    
+      writable = yes
+
+  重启
+  sudo /etc/init.d/samba restart</pre>
+  <div class="url">
+    <a href="https://learnku.com/articles/36293" target="_blank">
+      learnku 网站文章 (learnku.com)
+    </a>
+  </div>
+</div>
