@@ -4,7 +4,7 @@ const path = require('path');
 const dir = './html/episode/';
 const dir_path = path.resolve(dir);
 const info = dir_tree(dir_path);
-const folders = info.children.sort((a, b) => a.name - b.name);
+const folders = info.children.sort((a, b) => b.name - a.name);
 //const json = JSON.stringify(dir_tree(dir_path), null, 2);
 //fs.writeFileSync('./data/episode.json', json);
 const html = template_nav_left(folders);
@@ -15,7 +15,7 @@ function template_nav_left(folders) {
   const tpl_level_2 = [];
   folders.forEach((v, i) => {
     const year = v.name;
-    const month = v.children.sort((a, b) => a.name - b.name);
+    const month = v.children.sort((a, b) => b.name.split(/[_.]/)[1] - a.name.split(/[_.]/)[1]);
     const tpl_year = `<div class="level_1 y"><div>${ year }</div></div>`;
     const tpl_month = month.map(v => `<div class="level_1 m"><div>-${ v.name.split(/[_.]/)[1] }</div></div>`).join('');
     tpl_level_2.push(`<div class="level_2">${ tpl_year + tpl_month }</div>`);

@@ -1,0 +1,57 @@
+<script>
+MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'},
+  chtml: {
+    displayAlign: 'left'
+  }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js" integrity="sha512-7rZgZU/u5XjLaO7dBpkcvZ2+ilGXbdIak0FXUgMoO+adNy7RUceort055Wn7LkZY3VLwEsSDpi8Ui+32N1vrfw==" crossorigin="anonymous"></script>
+
+<div class="item">
+  <div class="date">2020/11/05</div>
+  <div class="summary">
+    <i class="anchor">向量内积</i>
+    <pre>【公式】理解向量内积公式</pre>
+    <p>$$\vec{\mathbf{a}} \cdot \vec{\mathbf{b}}=\sum_{i=1}^n a_ib_i  = |\vec a||\vec b|cos\theta$$</p>
+    <div class="url">
+      <a href="https://blog.zhimind.com/my-understanding-on-vector-inner-product.html" target="_blank">
+        等式右边向左推导 (名叫科探空谷的个人博客)
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <i class="anchor">向量外积</i>
+    <pre>【公式】理解向量(二维)外积公式</pre>
+    <p>\[
+      \mathbf{a}_1 \times \mathbf{b}_2 =
+       \begin{vmatrix}
+        \mathbf{a}_1 &amp; \mathbf{a}_2 \\
+        \mathbf{b}_1 &amp; \mathbf{b}_2 \\
+       \end{vmatrix} =
+      |\vec a||\vec b|sin\theta
+    \]</p>
+    <div class="url">
+      <a href="https://zh.wikipedia.org/zh/%E5%8A%9B%E7%9F%A9" target="_blank">
+        力矩 -> 叉乘 (维基百科)
+      </a> 
+    </div>
+  </div>
+  <div class="summary">
+    <i class="anchor">三角函数恒等式</i>
+    <pre>【公式】三角函数恒等式</pre>
+    <p>$$sin(x+y)=sinxcosy + cosxsiny$$</p>
+    <p>$$cos(x+y)=cosxcosy - sinxsiny$$</p>
+    <p>$$sin(x-y)=sinxcosy - cosxsiny$$</p>
+    <p>$$cos(x-y)=cosxcosy + sinxsiny$$</p>
+    <p>其他不列出了...</p>
+    <div class="url">
+      <a href="https://mrchasemath.com/2018/01/17/geometric-proofs-of-trigonometric-identities/" target="_blank">
+        非常直观的使用圆和三角形进行证明 (mrchasemath.com)
+      </a> 
+    </div>
+  </div>
+</div>
+
+<script src="../js/catalog_bar.js"></script>

@@ -60,7 +60,6 @@
   color: #2a2a2a;
   z-index: 100;
   font-size: 14px;
-  overflow: auto;
   font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
 }
 #page.columns2 #nav_top {

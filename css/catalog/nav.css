@@ -95,6 +95,7 @@
   align-items: center;
 }
 .top_center {
+  overflow: auto;
   flex: 1 1 auto;
   justify-content: left;
   box-shadow: 0 2px 2px -2px #96bb7c,

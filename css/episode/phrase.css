@@ -37,4 +37,7 @@
   #phrase > div {
     padding: 10px;
   }
+  #phrase > div > dl > dd {
+    margin-left: 10px;
+  }
 }
