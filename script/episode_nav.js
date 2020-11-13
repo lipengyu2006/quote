@@ -1,14 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = './html/episode/';
-const dir_path = path.resolve(dir);
+const dir_path = path.join(__dirname, '../html/episode/');
 const info = dir_tree(dir_path);
 const folders = info.children.sort((a, b) => b.name - a.name);
 //const json = JSON.stringify(dir_tree(dir_path), null, 2);
 //fs.writeFileSync('./data/episode.json', json);
 const html = template_nav_left(folders);
-const file = './html/nav/episode_left.html';
+const file = path.join(__dirname, '../html/nav/episode_left.html');
 fs.writeFileSync(file, html);
 
 function template_nav_left(folders) {
