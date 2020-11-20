@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./css/index/page.css" />
 <link rel="stylesheet" href="./css/index/layout.css" />
 <link rel="stylesheet" href="./css/index/nav.css" />
+<link rel="stylesheet" href="./css/index/content.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <title>Home</title>
 </head>
@@ -16,7 +17,15 @@
     <div id="top"></div>
     <div id="nav"></div>
     <div id="main">
-      <div id="content"></div>
+      <div id="content">
+        <iframe
+          title="mix demo" aria-hidden="true"
+          src="./html/snippets/mixer.html"
+          scrolling="no"
+          width="100%"
+          onload="this.style.height = (this.contentWindow.document.body.scrollHeight + 10) + 'px';">
+        </iframe>
+      </div>
     </div>
     <div id="bar"></div>
     <div id="foot"></div>

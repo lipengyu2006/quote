@@ -1,0 +1,9 @@
+#content {
+  padding-top: 20px;
+}
+
+
+
+.item .summary .anchor {
+  display: none;
+}
