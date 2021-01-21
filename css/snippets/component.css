@@ -1,0 +1,23 @@
+.list_hori {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.list_hori .item {
+  display: flex;
+  margin-left: 15px;
+}
+.list_hori .item > div {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.list_hori .item > div:nth-child(2) input {
+  margin-top: 2px;
+}
+
+.date {
+  font-weight: bold;
+  padding-left: 5px;
+}

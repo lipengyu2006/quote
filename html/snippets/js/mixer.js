@@ -1,7 +1,25 @@
 var amount = 0.5;
-var slider = document.querySelector('#scale-slider');
+var dirty = true;
+var easing;
+
+
+var slider = document.querySelector('#slider1');
 slider.addEventListener('input', function() {
   amount = (slider.value/1000.0);
+  if (easing) {
+    amount = easing(amount);
+  }
+  dirty = true;
+});
+var easing_funs = document.querySelectorAll('input[name="easing"]');
+easing_funs.forEach(function(input) {
+  input.addEventListener('change', function() {
+    amount = 0;
+    slider.value = 1000 * amount;
+    easing = eval(this.value);
+    amount = easing(amount);
+    dirty = true;
+  });
 });
 
 var left_radius = 25;
@@ -21,6 +39,11 @@ var right = new Vec2(W*3/4, H/2);
 window.requestAnimationFrame(tick);
 
 function tick() {
+  if (!dirty) {
+    window.requestAnimationFrame(tick);
+    return;
+  }
+
   //Draw
   var ctx = canv.getContext('2d');
   ctx.clearRect(0, 0, W, H);
@@ -45,7 +68,6 @@ function tick() {
   ctx.fill(circle);
   ctx.stroke(circle);
 
+  dirty = false;
   window.requestAnimationFrame(tick);
 }
-
-console.log(is_on_screen());

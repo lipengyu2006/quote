@@ -1,0 +1,18 @@
+pre.text {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  margin: 7px 5px;
+	line-height: 2;
+  overflow: auto;
+}
+
+pre.code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+	padding: .5em;
+  margin: 10px 5px;
+	background: #f7f2e7;
+  color: #797a7e;
+  width: 100%;
+  overflow: auto;
+}

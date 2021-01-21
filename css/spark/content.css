@@ -1,0 +1,196 @@
+#content {
+  padding-top: 20px;
+}
+
+.timeline .unfold,
+.timeline .more {
+  position: relative;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+}
+.timeline .unroll::after,
+.timeline .unfold::before,
+.timeline .unfold::after,
+.timeline .more::after {
+  content: '';
+  position: relative;
+  min-width: 3px;
+  width: 3px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.timeline .unfold::before {
+  background: #e6b566;
+  left: 31px;
+  z-index: 1;
+  margin-bottom: -1px;
+  top: 10px;
+}
+.timeline .unfold::after,
+.timeline .more::after {
+  background: linear-gradient(#f7f7f7 50%, #e6b566 0);
+  background-size: 100% 7px;
+  left: -89px;
+  z-index: 2;
+  margin-bottom: 0px;
+  top: 0px;
+}
+.timeline .unroll::after {
+  background: #f7f7f7;
+  left: -89px;
+  z-index: 2;
+  margin-bottom: 21px;
+  top: -4px;
+}
+.timeline .unfold > a {
+  padding: 0px 0px 0px 8px;
+}
+.timeline .more > a {
+  padding: 0px 0px 0px 11px;
+}
+
+.timeline .unroll > a:first-child {
+  display: contents;
+  word-break: break-all;
+  max-width: 100%;
+  pointer-events: all;
+  float: left;
+}
+.timeline .unroll > a:last-child {
+  padding: 0px 0px 0px 11px;
+  margin: 0px;
+}
+
+
+.timeline a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  margin-left: 45px;
+  padding: 7px 0;
+  text-decoration: none;
+  color: #797a7e;
+  color: #5eaaa8;
+}
+.timeline a:hover {
+  text-decoration: underline;
+}
+
+.timeline {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  font-size: 16px;
+  color: #797a7e;
+}
+.timeline *::before,
+.timeline *::after {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+}
+
+.timeline-item {
+  overflow-wrap: break-word;
+  border-left-width: 0;
+  min-width: 0;
+  padding: 12px;
+  display: flex;
+  position: relative;
+}
+.timeline-item.more-items {
+  padding: 5px 12px;
+}
+
+.thread-line .timeline-item::before {
+  background: #e6b566;
+  content: '';
+  position: relative;
+  min-width: 3px;
+  width: 3px;
+  left: 22px;
+  border-radius: 2px;
+  margin-left: -3px;
+  margin-bottom: 19px;
+  top: 42px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.thread-line .timeline-item.unroll {
+  padding: 0px;
+}
+
+.thread-line .timeline-item.more-items.mid::before {
+  background: #e6b566;
+  content: '';
+  position: relative;
+  min-width: 3px;
+  width: 3px;
+  left: 22px;
+  border-radius: 2px;
+  margin-left: -3px;
+  margin-bottom: 21px;
+  top: 37px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.thread-line .timeline-item:last-child::before,
+.thread-line .timeline-item.more-items::before {
+  background: unset;
+  min-width: unset;
+  width: 0;
+  margin: 0;
+}
+
+.thread-line .more-items::after {
+  position: relative;
+  content: '...';
+  background: unset;
+  color: #e6b566;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 8px;
+  right: 92px;
+  width: 5px;
+  top: -1px;
+}
+
+.thread {
+  flex: 1;
+  min-width: 0;
+  margin-left: 45px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thread-head .head-avatar {
+  display: contents;
+  word-break: break-all;
+  max-width: 100%;
+  pointer-events: all;
+}
+
+.thread-head .head-avatar .avatar {
+  float: left;
+  margin-top: 3px;
+  margin-left: -42px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: url('../../img/avatar/0001.jpg');
+  background-size: cover;
+}
+
+
+.thread-line .timeline-item.unroll .avatar {
+  position: relative;
+  z-index: 2;
+  margin-top: 0px;
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: url('../../img/avatar/0001.jpg');
+  background-size: cover;
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "sid": "101",
+    "name": "invest",
+    "title": "投资",
+    "children": [
+      {
+        "sid": "101001",
+        "name": "consumer_industry_stocks",
+        "title": "以白酒家电行业为主的消费行业股票"
+      }
+    ]
+  },
+  {
+    "sid": "102",
+    "name": "celebrity",
+    "title": "人物",
+    "children": [
+      {
+        "sid": "102001",
+        "name": "Elon_Musk",
+        "title": "埃隆·马斯克"
+      }
+    ]
+  },
+  {
+    "sid": "103",
+    "name": "politics",
+    "title": "政治",
+    "children": [
+      {
+        "sid": "103001",
+        "name": "Republican_Democratic",
+        "title": "由美国共和党与民主党想到..."
+      }
+    ]
+  }
+]

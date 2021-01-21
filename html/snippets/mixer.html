@@ -1,21 +1,81 @@
-<!doctype html>
-<html lang='en'>
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../../css/snippets/demo.css">
-  <script src="./js/vec2.js"></script>
-  <script src="./js/demo.js"></script>
-</head>
-<body>
-  <canvas id='canvas'></canvas>
-  <div class="inputs">
-    <div>
-      混合量
-    </div>
-    <div>
-      <input type="range" id="scale-slider" min="0" max="1000">
+<script src="./html/snippets/js/vec2.js"></script>
+<script src="./html/snippets/js/easing.js"></script>
+<div class="date">2020/11/27</div>
+<pre class="text">
+  学习 Bruce Hill 先生的文章后整理部分内容 mix 函数如下：
+  线性混合函数，也有人叫线性差值 (lerp) 函数
+  amount 为百分比，混合 a 和 b 的函数如下
+</pre>
+<pre class="code">
+  function mix(a, b, amount)
+    return (1 - amount)*a + amount*b
+</pre>
+  <div class="graphics">
+    <canvas id='canvas'></canvas>
+    <div class="inputs">
+      <div>混合百分比</div>
+      <div>
+        <input type="range" id="slider1" min="0" max="1000">
+      </div>
     </div>
   </div>
-<script src="./js/mixer.js"></script>
-</body>
-</html>
+
+  <div class="list_hori">
+    <div class="item">
+      <div><label for="linear">linear</label></div>
+      <div><input type="radio" name="easing" id="linear" value="linear" checked></div>
+    </div>
+    <div class="item">
+      <div><label for="easeInQuad">easeInQuad</label></div>
+      <div><input type="radio" name="easing" id="easeInQuad" value="easeInQuad"></div>
+    </div>
+    <div class="item">
+      <div><label for="easeInCubic">easeInCubic</label></div>
+      <div><input type="radio" name="easing" id="easeInCubic" value="easeInCubic"></div>
+    </div>
+    <div class="item">
+      <div><label for="easeInQuart">easeInQuart</label></div>
+      <div><input type="radio" name="easing" id="easeInQuart" value="easeInQuart"></div>
+    </div>
+    <div class="item">
+      <div><label for="easeInQuint">easeInQuint</label></div>
+      <div><input type="radio" name="easing" id="easeInQuint" value="easeInQuint"></div>
+    </div>
+  </div>
+<pre class="text">
+  把 amount 当做输入值，经过类似像 easing 这样的函数处理后，上面的函数会变成非线性混合函数
+</pre>
+<pre class="code">
+  function mix(a, b, amount)
+    amount = easing(amount);
+    return (1 - amount)*a + amount*b
+</pre>
+<pre class="text">
+  有大佬把常用的 easing 函数总结如下：
+</pre>
+<pre class="code">
+/*
+ * Easing Functions - inspired from http://gizma.com/easing/
+ * only considering the t value for the range [0, 1] => [0, 1]
+ */
+EasingFunctions = {
+  linear: t => t,                                                // no easing, no acceleration
+  easeInQuad: t => t*t,                                          // accelerating from zero velocity
+  easeOutQuad: t => t*(2-t),                                     // decelerating to zero velocity
+  easeInOutQuad: t => t<.5 ? 2*t*t : -1+(4-2*t)*t,               // acceleration until halfway, then deceleration
+  easeInCubic: t => t*t*t,                                       // accelerating from zero velocity 
+  easeOutCubic: t => (--t)*t*t+1,                                // decelerating to zero velocity 
+  easeInOutCubic: t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1, // acceleration until halfway, then deceleration 
+  easeInQuart: t => t*t*t*t,                                     // accelerating from zero velocity 
+  easeOutQuart: t => 1-(--t)*t*t*t,                              // decelerating to zero velocity 
+  easeInOutQuart: t => t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t,       // acceleration until halfway, then deceleration
+  easeInQuint: t => t*t*t*t*t,                                   // accelerating from zero velocity
+  easeOutQuint: t => 1+(--t)*t*t*t*t,                            // decelerating to zero velocity
+  easeInOutQuint: t => t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t  // acceleration until halfway, then deceleration 
+}
+</pre>
+<pre class="text">
+  其实还可以利用贝塞尔曲线公式等技术自定义 easing 函数
+  关于贝塞尔曲线的整理单独放在下一篇文章中
+</pre>
+<script src="./html/snippets/js/mixer.js"></script>

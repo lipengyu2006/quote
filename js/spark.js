@@ -1,15 +1,16 @@
 (async function ($) {
-  const url = './nav/head.html';
-  $('#top').load(url, function() {
+  const url_head = './nav/head.html';
+  $('#top').load(url_head, function() {
     $('#nav_top .nav_tabs a').each(function(i, v) {
       $(v).removeClass('on');
-      if ($(v).data('sid') === 'lore') {
+      if ($(v).data('sid') === 'spark') {
         $(v).addClass('on');
       }
     });
   });
 
-  const json_catalog = await $.getJSON('../data/catalog/category.json');
+
+  const json_catalog = await $.getJSON('../data/spark/category.json');
   const html_nav = tmpl_catalog(json_catalog);
 
   $('#nav').html(html_nav);
@@ -24,7 +25,7 @@
         $('#nav .level_1').removeClass('on');
         $(k).parent().addClass('on');
         const id = $(this).data('sid');
-        const url = `/quote/html/category/${ maintype }/${ name }.html`;
+        const url = `/quote/html/spark/${ maintype }/${ name }.html`;
         $('#content').load(url, function() {
           const url = `?sid=${ id }`;
           history.pushState({ sid: id, name, type: maintype }, name, url);
@@ -33,10 +34,11 @@
     });
   });
 
+
   window.addEventListener('popstate', function(e) {
     const state = e.state;
     if (state) {
-      const url = `/quote/html/category/${ state.type }/${ state.name }.html`;
+      const url = `/quote/html/spark/${ state.type }/${ state.name }.html`;
       const sid = state.sid;
       load_main_content(url, sid);
     } else {
@@ -44,6 +46,9 @@
       nav_by_sid();
     }
   });
+
+
+
 
   nav_by_sid();
 
@@ -57,7 +62,7 @@
         const maintype = obj_current.name;
         const name = obj_current_sub.name;
         const sid = obj_current_sub.sid;
-        const url = `/quote/html/category/${ maintype }/${ name }.html`;
+        const url = `/quote/html/spark/${ maintype }/${ name }.html`;
         load_main_content(url, sid);
       } else {
         default_nav();
@@ -69,16 +74,8 @@
 
 
 
-  $('#bar').on('click', '.level_1 a', function(e) {
-    e.preventDefault();
-    const index = $(this).attr('href');
-    const anchor = $('#content .anchor').eq(index);
-    const summary = anchor.parent();
-    $('#bar .level_1').removeClass('on').eq(index).addClass('on');
-    scrollTo(0, summary.offset().top - 50);
-  });
 
-
+/*
   $('#top').on('click', '.menu', function(e) {
     e.preventDefault();
     $('#page').addClass('columns2');
@@ -91,6 +88,7 @@
     $('.nav_tabs .close').addClass('hidden');
     $('.nav_tabs .menu').removeClass('hidden');
   });
+*/
 })(jQuery);
 
 function load_main_content(url, sid) {
@@ -99,8 +97,8 @@ function load_main_content(url, sid) {
 }
 
 function default_nav() {
-  const url_sub_default = '/quote/html/category/program/file.html';
-  const sid_sub_default = '100410';
+  const url_sub_default = '/quote/html/spark/invest/consumer_industry_stocks.html';
+  const sid_sub_default = '101001';
   load_main_content(url_sub_default, sid_sub_default);
 }
 

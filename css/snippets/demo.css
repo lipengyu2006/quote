@@ -1,9 +1,10 @@
 body {
+  /*
   font: 18px "Open Sans", "Helvetica neue", Helvetica, Arial, sans-serif;
+  */
   color: #606c71;
   padding: 0;
   margin: 0;
-  text-align: center;
 }
 
 div {
@@ -14,6 +15,11 @@ canvas, svg {
   box-shadow: 1px 1px 5px rgba(71, 51, 31, 0.3);
   margin: 3px;
   width: 500px;
+}
+
+input[type=radio] {
+  margin: 0;
+  display: block;
 }
 
 input[type=range] {
@@ -51,6 +57,14 @@ input[type=range]::-webkit-slider-thumb {
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #DFE1ED;
+}
+
+.graphics {
+  display: flex;
+  flex-direction: column;
+  margin: 7px 0;
+  align-items: center;
+  overflow: auto;
 }
 
 .inputs {
