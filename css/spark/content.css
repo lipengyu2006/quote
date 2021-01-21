@@ -23,7 +23,7 @@
 
 .timeline .unfold::before {
   background: #e6b566;
-  left: 31px;
+  left: 27px;
   z-index: 1;
   margin-bottom: -1px;
   top: 10px;
@@ -41,14 +41,14 @@
   background: #f7f7f7;
   left: -89px;
   z-index: 2;
-  margin-bottom: 21px;
+  margin-bottom: 22px;
   top: -4px;
 }
 .timeline .unfold > a {
-  padding: 0px 0px 0px 8px;
+  padding: 0px 0px 0px 4px;
 }
 .timeline .more > a {
-  padding: 0px 0px 0px 11px;
+  padding: 0px 0px 0px 7px;
 }
 
 .timeline .unroll > a:first-child {
@@ -93,12 +93,9 @@
   overflow-wrap: break-word;
   border-left-width: 0;
   min-width: 0;
-  padding: 12px;
+  padding: 12px 12px 12px 8px;
   display: flex;
   position: relative;
-}
-.timeline-item.more-items {
-  padding: 5px 12px;
 }
 
 .thread-line .timeline-item::before {
@@ -120,41 +117,15 @@
   padding: 0px;
 }
 
-.thread-line .timeline-item.more-items.mid::before {
-  background: #e6b566;
-  content: '';
-  position: relative;
-  min-width: 3px;
-  width: 3px;
-  left: 22px;
-  border-radius: 2px;
-  margin-left: -3px;
-  margin-bottom: 21px;
-  top: 37px;
-  z-index: 1;
-  pointer-events: none;
-}
 
-.thread-line .timeline-item:last-child::before,
-.thread-line .timeline-item.more-items::before {
+
+.thread-line .timeline-item:last-child::before {
   background: unset;
   min-width: unset;
   width: 0;
   margin: 0;
 }
 
-.thread-line .more-items::after {
-  position: relative;
-  content: '...';
-  background: unset;
-  color: #e6b566;
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 8px;
-  right: 92px;
-  width: 5px;
-  top: -1px;
-}
 
 .thread {
   flex: 1;
@@ -187,9 +158,9 @@
   position: relative;
   z-index: 2;
   margin-top: 0px;
-  margin-left: 20px;
-  width: 25px;
-  height: 25px;
+  margin-left: 15px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: url('../../img/avatar/0001.jpg');
   background-size: cover;
