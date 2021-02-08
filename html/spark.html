@@ -9,23 +9,95 @@
 <link rel="stylesheet" href="../css/spark/layout.css" />
 <link rel="stylesheet" href="../css/spark/nav.css" />
 <link rel="stylesheet" href="../css/spark/content.css" />
+<link rel="stylesheet" href="../css/spark/editor.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <title>Spark</title>
 </head>
 <body>
+  <!-- <div id="page" class="editor_mode"> -->
   <div id="page">
     <div id="top"></div>
     <div id="nav"></div>
     <div id="main">
       <div id="content"></div>
+      <div id="add"></div>
     </div>
     <div id="bar">
       <div class="nav_right"></div>
     </div>
+    <div id="editor">
+      <div id="editor_head">
+        <div id="editor_head_close">
+          <a href="#" class="button close">✕</a>
+        </div>
+        <div id="editor_head_mid"></div>
+        <div id="editor_head_opt">
+          <a href="#" class="button send">发送</a>
+          <svg id="ring" width="50" height="50">
+            <circle cx="25" cy="25" r="20"></circle>
+            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" dy="5px" font-size="14">1000</text>
+          </svg>
+        </div>
+      </div>
+      <div id="editor_content">
+        <div class="timeline">
+          <div class="thread-line">
+            <div class="timeline-item">
+              <div class="thread">
+                <div class="thread-head">
+                  <a class="head-avatar" href="#">
+                    <div class="avatar"></div>
+                  </a>
+                  <div>2021/01/11</div>
+                </div>
+                <div class="thread-body">
+                  都说基金抱团，那是不是也是 300etf 的机会呢？
+                </div>
+                <div class="thread-foot">lipengyu</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="thread">
+                <div class="thread-head">
+                  <a class="head-avatar" href="#">
+                    <div class="avatar"></div>
+                  </a>
+                  <div>2021/01/11</div>
+                </div>
+                <div class="thread-body">
+                  往中字头上流，两桶油也连续涨了一个多点
+                </div>
+                <div class="thread-foot">lipengyu</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="thread">
+                <div class="thread-head">
+                  <a class="head-avatar" href="#">
+                    <div class="avatar"></div>
+                  </a>
+                </div>
+                <div class="thread-body">
+                  <textarea class="textarea"></textarea>
+                </div>
+                <div class="thread-foot">
+                  <div class="editor_foot_opt">
+                    <div class="opt_group_left">
+                      <a href="#" class="button gl image">📷</a>
+                      <a href="#" class="button gl emoji">🙂</a>
+                    </div>
+                    <div class="opt_group_right">
+                      <a href="#" class="button gr thread">+</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="foot"></div>
-  </div>
-  <div id="icon">
-  
   </div>
 <script src="../js/spark.js"></script>
 </body>

@@ -74,8 +74,12 @@
 .nav_tabs > a.on {
   background: #e0ece4;
 }
-.nav_tabs > a:not(:first-child) {
-  margin-left: 20px;
+
+.nav_tabs > a span {
+  display: inline-block;
+}
+.nav_tabs > a span:nth-child(2) {
+  margin-left: 5px;
 }
 
 

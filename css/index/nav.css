@@ -79,9 +79,6 @@
   box-shadow: 0 2px 2px -2px #96bb7c,
               0 25px 5px -5px #f7f7f7;
 }
-.nav_tabs {
-  margin: 0 10px;
-}
 .nav_tabs > a {
   text-decoration: none;
   color: #2a2a2a;
@@ -92,9 +89,13 @@
 .nav_tabs > a.on {
   background: #e0ece4;
 }
-.nav_tabs > a:not(:first-child) {
-  margin-left: 20px;
-}
 .nav_tabs > a.menu.hidden + a.close {
   margin-left: 0px;
+}
+
+.nav_tabs > a span {
+  display: inline-block;
+}
+.nav_tabs > a span:nth-child(2) {
+  margin-left: 5px;
 }

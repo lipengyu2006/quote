@@ -1,0 +1,148 @@
+textarea {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
+  height: 40px;
+  width: 100%;
+  padding: 5px 15px;
+  display: block;
+  line-height: 28px;
+  color: #797a7e;
+  font-size: 16px;
+  resize: none;
+  border: none;
+  pointer-events: auto;
+}
+
+textarea:focus {
+  outline: none !important;
+  /*border:1px solid #797a7e;
+  box-shadow: 0 0 5px #797a7e;*/
+}
+
+#editor {
+  /*min-height: 150vh;*/
+  min-height: calc(100vh + 300px);
+  /*min-height: 100vh;*/
+}
+
+#editor_head {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color: #f7f7f7;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 60px 1fr 150px;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "editor_head_close editor_head_mid editor_head_opt"
+}
+#editor_head_close {
+  grid-area: editor_head_close;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+#editor_head_mid {
+  grid-area: editor_head_mid;
+}
+#editor_head_opt {
+  grid-area: editor_head_opt;
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse nowrap;
+  padding-right: 12px;
+}
+
+#editor_content {
+  padding: 60px 0px 10px 0px;
+}
+
+.editor_foot_opt {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 20px;
+}
+.opt_group_left {
+  flex: 1 1 auto;
+  display: flex;
+}
+.opt_group_right {
+/*
+  flex: 0 0 80px;
+  display: flex;
+*/
+}
+
+a.button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 300;
+  color: #FFF;
+  transition: all 0.2s;
+  border: 1px solid #FFF;
+  background-color: #4eb5f1;
+  padding: 5px 15px;
+  pointer-events: auto;
+}
+a.button.send {
+  border-radius: 15px;
+}
+a.button.send:hover {
+  background-color: #0278ae;
+}
+a.button.close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #797a7e;
+}
+a.button.close:hover {
+  background-color: #bedcfa;
+}
+
+a.button.gl, a.button.gr {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+a.button.gl {
+  background-color: #28abb9;
+  margin: 0px 10px 0px 0px;
+  border-radius: 3px;
+}
+a.button.gl:hover {
+  background-color: #a8dda8;
+  text-decoration: none;
+}
+a.button.gr {
+  background-color: #0278ae;
+  margin: 0px 0px 0px 10px;
+  border-radius: 50%;
+}
+a.button.gr:hover {
+  background-color: #51adcf;
+  text-decoration: none;
+}
+
+svg#ring {
+  margin-right: 15px;
+}
+svg#ring circle {
+  fill: transparent;
+  stroke: #c70039;
+  stroke: #f37121;
+  stroke: #c0e218;
+  stroke-width: 5px;
+  stroke-dasharray: 126,126;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  transform: rotate(270deg);
+}

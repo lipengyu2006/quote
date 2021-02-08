@@ -93,7 +93,8 @@
   overflow-wrap: break-word;
   border-left-width: 0;
   min-width: 0;
-  padding: 12px 12px 12px 8px;
+  /*padding: 12px 12px 12px 8px;*/
+  padding: 12px 12px 0px 8px;
   display: flex;
   position: relative;
 }
@@ -164,4 +165,33 @@
   border-radius: 50%;
   background: url('../../img/avatar/0001.jpg');
   background-size: cover;
+}
+
+.thread-head .head-info {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  grid-template-areas:
+    "info_name info_date"
+}
+.thread-head .head-info > div:nth-child(1) {
+  grid-area: info_name;
+}
+.thread-head .head-info > div:nth-child(2) {
+  grid-area: info_date;
+  text-align: right;
+}
+
+.thread-foot {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+  align-items: center;
+}
+.thread-foot > div {
+  padding: 2px 0px 2px 20px;
+  pointer-events: auto;
+}
+.thread-foot > div > span:hover {
+  color: #7c9473;
+  cursor: pointer;
 }
