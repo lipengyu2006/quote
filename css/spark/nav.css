@@ -18,6 +18,9 @@
   overflow-y: hidden;
   font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif;
 }
+.nav_right {
+  width: 230px;
+}
 .nav_right div,
 .nav_left div {
   display: flex;
@@ -132,3 +135,46 @@
     display: flex;
   }
 }
+
+
+
+#page_info {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  grid-template-rows: 30px 1fr;
+  grid-template-areas:
+    "page_info_bar page_info_bar page_info_bar"
+    "page_info_left page_info_numb page_info_right"
+}
+#page_info_bar {
+  grid-area: page_info_bar;
+}
+#page_info_right {
+  grid-area: page_info_right;
+}
+#page_info_left {
+  grid-area: page_info_left;
+}
+#page_info_numb {
+  grid-area: page_info_numb;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  grid-gap: 1px;
+}
+.page_numb {
+  display: flex;
+  height: 40px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.page_numb.on,
+.page_numb:hover {
+  background: #e0ece4;
+  border-radius: 50%;
+}
+
+
+
+

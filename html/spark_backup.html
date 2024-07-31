@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="../css/spark/content.css" />
 <link rel="stylesheet" href="../css/spark/editor.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <title>Spark</title>
 </head>
 <body>
@@ -21,18 +20,48 @@
     <div id="nav"></div>
     <div id="main">
       <div id="content"></div>
+      <div id="add"></div>
     </div>
     <div id="bar">
-      <div class="nav_right"></div>
+      <div class="nav_right">
+        <div id="page_info">
+          <div id="page_info_bar"></div>
+          <div id="page_info_left"></div>
+          <div id="page_info_right"></div>
+          <div id="page_info_numb">
+            <div class="page_numb">1</div>
+            <div class="page_numb">2</div>
+            <div class="page_numb">3</div>
+            <div class="page_numb">4</div>
+            <div class="page_numb">5</div>
+            <div class="page_numb">6</div>
+            <div class="page_numb">7</div>
+            <div class="page_numb">8</div>
+            <div class="page_numb">9</div>
+            <div class="page_numb">10</div>
+            <div class="page_numb">11</div>
+            <div class="page_numb">12</div>
+            <div class="page_numb">13</div>
+            <div class="page_numb">14</div>
+            <div class="page_numb">15</div>
+            <div class="page_numb">16</div>
+            <div class="page_numb">17</div>
+            <div class="page_numb">18</div>
+            <div class="page_numb">19</div>
+            <div class="page_numb">20</div>
+            <div class="page_numb">21</div>
+            <div class="page_numb on">22</div>
+            <div class="page_numb">23</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="editor">
       <div id="editor_head">
         <div id="editor_head_close">
           <a href="#" class="button close">✕</a>
         </div>
-        <div id="editor_head_mid">
-          <div id="editor_head_content"></div>
-        </div>
+        <div id="editor_head_mid"></div>
         <div id="editor_head_opt">
           <a href="#" class="button send">发送</a>
           <svg id="ring" width="50" height="50" style="display: none;">
@@ -50,12 +79,12 @@
                   <a class="head-avatar" href="#">
                     <div class="avatar"></div>
                   </a>
-                  <div>lipengyu</div>
+                  <div>2021/01/11</div>
                 </div>
                 <div class="thread-body">
                   都说基金抱团，那是不是也是 300etf 的机会呢？
                 </div>
-                <div class="thread-foot">2021/01/11</div>
+                <div class="thread-foot">lipengyu</div>
               </div>
             </div>
             <!--
@@ -65,12 +94,12 @@
                   <a class="head-avatar" href="#">
                     <div class="avatar"></div>
                   </a>
-                  <div>lipengyu</div>
+                  <div>2021/01/11</div>
                 </div>
                 <div class="thread-body">
                   往中字头上流，两桶油也连续涨了一个多点
                 </div>
-                <div class="thread-foot">2021/01/11</div>
+                <div class="thread-foot">lipengyu</div>
               </div>
             </div>
             -->
@@ -82,7 +111,7 @@
                   </a>
                 </div>
                 <div class="thread-body">
-                  <textarea id="editor_body_content" class="textarea"></textarea>
+                  <textarea class="textarea"></textarea>
                 </div>
                 <div class="thread-foot" style="display: none;">
                   <div class="editor_foot_opt">
@@ -106,9 +135,7 @@
   <div id="button_add_group">
     <div class="button_add" id="button_add_reply">+</div>
     <div class="button_add" id="button_add_topic">+</div>
-    <div id="pagination"></div>
   </div>
-<script src="../js/spark.js"></script>
-<script src="../../kratos/js/dist/app.js"></script>
+<script src="../js/spark_backup.js"></script>
 </body>
 </html>

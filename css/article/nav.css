@@ -1,0 +1,37 @@
+/* Sidebar Navigation */
+.nav {
+	position: sticky;
+	top: 2rem;
+}
+
+.nav {
+  padding-left: 0;
+  border-left: 1px solid #efefef;
+}
+
+.nav ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav li {
+  margin-left: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  display: block;
+  padding: .125rem 0;
+  color: #ccc;
+  transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+}
+
+.nav a:hover,
+.nav a:focus {
+  color: #666;
+}
+
+.nav li.on > a {
+	color: #333;
+	font-weight: 500;
+}

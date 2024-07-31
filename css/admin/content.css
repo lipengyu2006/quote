@@ -1,0 +1,135 @@
+* {
+  font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans HK', sans-serif; 
+}
+
+/********************* prop up *********************/
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.roll {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.roll:hover {
+  overflow-y: auto;
+}
+
+.roll:hover::-webkit-scrollbar-thumb {
+  display: block;
+}
+.roll::-webkit-scrollbar {
+  width: 15px;
+  background-color: transparent;
+}
+.roll::-webkit-scrollbar-thumb {
+  background-color: rgba(95,98,116,.5);
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  display: none;
+  border-radius: 8px;
+}
+/********************* prop up *********************/
+
+
+/********************* vertical nav *********************/
+.ver_menu,
+.verm_grp,
+.grp_title,
+.item,
+.vm_icon,
+.button,
+.button div {
+  display: flex;
+}
+.button {
+  flex-direction: row;
+  background: #9FD8DF;
+  cursor: pointer;
+  padding: 10px;
+}
+.button:hover {
+  background: #78C4D4;
+}
+.button:hover .vm_icon {
+  color: #93329E;
+}
+.ver_menu, .verm_grp {
+  flex-direction: column;
+}
+.ver_menu {
+  font-size: 14px;
+  color: #232323;
+}
+
+.ver_menu .item,
+.ver_menu .grp_title {
+  flex-direction: row;
+  padding: 3px 0;
+}
+.ver_menu .grp_title {
+  font-weight: bold;
+}
+.verm_grp .item {
+  padding-left: 4px;
+}
+.ver_menu .item {
+  cursor: pointer;
+}
+.ver_menu .item:hover {
+  background: #DDDDDD;
+}
+.ver_menu .item:hover .vm_icon {
+  color: #9E9D89;
+}
+.ver_menu.fixed .item:hover .vm_icon {
+  color: #FFE268;
+}
+.ver_menu.fixed .vm_icon {
+  color: #FFB037;
+}
+.vm_icon {
+  flex: 0 0 34px;
+  justify-content: center;
+  align-items: center;
+}
+.button .vm_icon {
+  color: #440A67;
+}
+.vm_name {
+  flex: 1;
+}
+.vm_content {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 15px;
+}
+.vm_content > div:nth-child(2),
+.vm_content > div:nth-child(3) {
+  font-size: 12px;
+}
+.wth40 {
+  flex: 0 0 40px;
+}
+.mgt25 {
+  margin: 15px 0;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /*display: block !important;*/
+  /*min-width: 0;*/
+}
+.horiz_divider {
+  height: 1px;
+  margin: 20px;
+}
+/********************* vertical nav *********************/

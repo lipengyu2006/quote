@@ -14,10 +14,11 @@
 .timeline .unfold::after,
 .timeline .more::after {
   content: '';
-  position: relative;
+  position: absolute;
   min-width: 3px;
   width: 3px;
   border-radius: 2px;
+  height: 25px;
   pointer-events: none;
 }
 
@@ -32,15 +33,15 @@
 .timeline .more::after {
   background: linear-gradient(#f7f7f7 50%, #e6b566 0);
   background-size: 100% 7px;
-  left: -89px;
+  left: 27px;
   z-index: 2;
   margin-bottom: 0px;
   top: 0px;
 }
 .timeline .unroll::after {
   background: #f7f7f7;
-  left: -89px;
-  z-index: 2;
+  left: 27px;
+  z-index: 1;
   margin-bottom: 22px;
   top: -4px;
 }
@@ -108,7 +109,7 @@
   left: 22px;
   border-radius: 2px;
   margin-left: -3px;
-  margin-bottom: 19px;
+  margin-bottom: 31px;
   top: 42px;
   z-index: 1;
   pointer-events: none;
@@ -169,7 +170,7 @@
 
 .thread-head .head-info {
   display: grid;
-  grid-template-columns: 1fr 90px;
+  grid-template-columns: 1fr 160px;
   grid-template-areas:
     "info_name info_date"
 }
@@ -188,10 +189,13 @@
   align-items: center;
 }
 .thread-foot > div {
+  visibility: hidden;
   padding: 2px 0px 2px 20px;
   pointer-events: auto;
 }
-.thread-foot > div > span:hover {
-  color: #7c9473;
+.thread-foot > div > span {
   cursor: pointer;
+}
+.timeline-item:not(.unroll, .unfold):hover .thread-foot > div {
+  visibility: visible;
 }

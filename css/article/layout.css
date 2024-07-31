@@ -1,0 +1,23 @@
+#page {
+  flex-direction: row;
+  display: flex;
+  height: 100%;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

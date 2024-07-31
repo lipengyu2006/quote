@@ -13,6 +13,52 @@
      sudo apt install g++
      reboot
 
+     2023/2/28
+     在编译 25.2.3-hipe 的时候出现如下错误
+     sctp support requested but cannot be enabled since 'netinet/sctp.h' is missing
+     通过如下方式解决
+     sudo apt-get install libsctp-dev
+     
+     2024/7/30 (未解决)
+     在编译 27.0.1 的时候出现如下关于 wxWidgets 错误
+     需要安装相关依赖包，根据文档
+     apt-key adv --fetch-keys https://repos.codelite.org/CodeLite.asc
+     相关文件中添加
+     deb https://repos.codelite.org/wx3.2/debian/ bookworm libs
+     更新
+     sudo apt-get update
+     安装依赖
+     apt-get install libwxbase3.2-0-unofficial \
+                libwxbase3.2unofficial-dev \
+                libwxgtk3.2-0-unofficial \
+                libwxgtk3.2unofficial-dev \
+                wx3.2-headers \
+                wx-common \
+                libwxgtk-media3.2-0-unofficial \
+                libwxgtk-media3.2unofficial-dev \
+                libwxgtk-webview3.2-0-unofficial \
+                libwxgtk-webview3.2unofficial-dev \
+                libwxgtk-webview3.2-0-unofficial-dbg \
+                libwxbase3.2-0-unofficial-dbg \
+                libwxgtk3.2-0-unofficial-dbg \
+                libwxgtk-media3.2-0-unofficial-dbg
+     2024/7/31
+     安装依赖
+     apt-get -y install libwxgtk-webview3.0-gtk3-dev
+     选择默认库
+     $ sudo update-alternatives --config wx-config 
+      There are 4 choices for the alternative wx-config (providing /usr/bin/wx-config).
+
+        Selection    Path                                                             Priority   Status
+      ------------------------------------------------------------
+      * 0            /usr/lib/x86_64-linux-gnu/wx/config/gtk3-unicode-3.2-unofficial   318       auto mode
+        1            /usr/lib/x86_64-linux-gnu/wx/config/base-unicode-3.0              306       manual mode
+        2            /usr/lib/x86_64-linux-gnu/wx/config/base-unicode-3.2-unofficial   317       manual mode
+        3            /usr/lib/x86_64-linux-gnu/wx/config/gtk3-unicode-3.0              309       manual mode
+        4            /usr/lib/x86_64-linux-gnu/wx/config/gtk3-unicode-3.2-unofficial   318       manual mode
+     Chose option 3. I don't know the reason why this works.
+     通过额外以上步骤，问题的已解决
+
   2. 安装 OpenSSL
 
      (<= erlang19.3)
@@ -26,12 +72,22 @@
        --prefix 路径需要更换其他地方
        -fPIC 编译选项位置
 
+     2023/2/28
+     安装 openssl-3.0.8 后运行 "prefix" 路径中的 openssl 出错
+     error while loading shared libraries libssl.so.3 cannot open shared object file
+     可以通过编辑动态库配置文件解决
+     在 /etc/ld.so.conf.d/ 目录下新建一个 conf 结尾的文件，我随意命名为 openssl-3.0.8.conf
+     内容为：
+       /usr/local/openssl-3.0.9/lib64
+
   3. 配置编译 Erlang 所需环境变量
 
      (<= erlang19.3)
      export KERL_CONFIGURE_OPTIONS="--enable-debug --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --with-ssl=/usr/local/openssl-1.0.2u/"
      (>= erlang20)
      export KERL_CONFIGURE_OPTIONS="--enable-debug --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --with-ssl=/usr/local/openssl-1.1.1d/"
+     (== erlang27) (未解决)
+     export KERL_CONFIGURE_OPTIONS="--enable-debug --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-webview --with-ssl=/usr/local/openssl-3.3.1/"
 
   4. 编译 Erlang 并安装
 
@@ -40,6 +96,13 @@
 
      kerl build 21.3 21.3-hipe
      kerl install 21.3-hipe /usr/local/erl_21.3-hipe
+
+  5. 运行某一版本的 Erlang
+
+     激活 (active) 某一版本
+     . /usr/local/erl_25.2.3-hipe/activate
+     退出 (leave) 这一版本
+     kerl_deactivate
   </pre>
   <div class="url">
     <a href="https://pattern-match.com/blog/erlang-how-to-safely-build-erlang-with-crypto-without-openssl-issues/" target="_blank">
@@ -54,6 +117,16 @@
   <div class="url">
     <a href="https://github.com/kerl/kerl" target="_blank">
       kerl (github 官方网站)
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://docs.codelite.org/wxWidgets/repo32/" target="_blank">
+      wxWidgets 3.2.4 Packages and Repositories
+    </a>
+  </div>
+  <div class="url">
+    <a href="https://github.com/asdf-vm/asdf-erlang/issues/244" target="_blank">
+       install the package libwxgtk-webview3.0-gtk3-dev to get access to wxWebView, as mentioned in #203
     </a>
   </div>
 </div>
